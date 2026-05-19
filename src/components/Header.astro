@@ -1,0 +1,63 @@
+---
+const navItems = [
+	{ href: '/', label: 'Home' },
+	{ href: '/about', label: 'About' },
+	{ href: '/projects', label: 'Projects' },
+	{ href: '/posts', label: 'Posts' },
+];
+---
+
+<header class="site-header">
+	<a class="brand" href="/">Home</a>
+	<nav aria-label="Main navigation">
+		{navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+	</nav>
+</header>
+
+<style>
+	.site-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: min(1120px, calc(100% - 32px));
+		margin: 0 auto;
+		padding: 24px 0;
+		gap: 24px;
+	}
+
+	.brand {
+		font-weight: 800;
+		letter-spacing: 0;
+	}
+
+	nav {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		gap: 8px 18px;
+		color: #52616f;
+		font-size: 0.95rem;
+	}
+
+	nav a {
+		border-bottom: 2px solid transparent;
+		padding-bottom: 4px;
+	}
+
+	nav a:hover,
+	nav a:focus-visible {
+		border-color: #10b981;
+		color: #111827;
+	}
+
+	@media (max-width: 560px) {
+		.site-header {
+			align-items: flex-start;
+			flex-direction: column;
+		}
+
+		nav {
+			justify-content: flex-start;
+		}
+	}
+</style>
